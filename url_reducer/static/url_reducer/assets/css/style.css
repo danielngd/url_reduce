@@ -10,7 +10,7 @@ body {align-items: center; background-color: #06253b; padding-top: 40px; padding
 /* Seleção com mouse */
 
 h1 {font-size: 50px;}
-h1, h2, .text-muted { color: #fff !important;}
+h1, h2, .text-muted { color: rgb(179, 212, 198) !important;}
 .color-y{color:#FFC203}
 .color-y:hover{color: #FFC203; text-decoration: none;}
 .input-group-lg>.form-control:not(textarea) {height: calc(1.5em + 1rem + 30px);}
