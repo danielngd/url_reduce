@@ -85,12 +85,19 @@ if database_url is None:
     }
 }
 else:
-    'postgres://hysoqabisgfizc:43244f87ce846f32c83de52f5a74beaa75529207e04753cc7ba02bff0eaf4a1a@ec2-35-170-85-206.compute-1.amazonaws.com:5432/dfv4tp0hng7033'
-    if database_url is None:
+    database_url = database_url.replace('postgres://', '')
+    credenciais, url = database_url.split('@')
+    usuario, senha = credenciais.split(':')
+    dominio_porta, banco_de_dados = url.split('/')
+    host, port = dominio_porta.split(':')
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': banco_de_dados,
+        'USER': usuario,
+        'PASSWORD': senha,
+        'HOST': host,
+        'PORT': port,
     }
 }
 
