@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-h+&@q0*icl!iek(z=-m$3jtsus-p@g3k&(6!8_0^rgr@-^e&)s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'secure-sea-21927.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'secure-sea-21927.herokuapp.com']
 
 
 # Application definition
@@ -74,9 +75,21 @@ WSGI_APPLICATION = 'url_reduce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+database_url = os.environ.get('DATABASE_URL')
+
+if database_url is None:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+else:
+    'postgres://hysoqabisgfizc:43244f87ce846f32c83de52f5a74beaa75529207e04753cc7ba02bff0eaf4a1a@ec2-35-170-85-206.compute-1.amazonaws.com:5432/dfv4tp0hng7033'
+    if database_url is None:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
