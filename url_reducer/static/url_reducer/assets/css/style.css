@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
 
 html, body {font-family: 'Roboto', sans-serif; height: 100%;}
-body {align-items: center; background-color: #005490; padding-top: 40px; padding-bottom: 40px; -ms-flex-align: center;}
+body {align-items: center; background-color: #06253b; padding-top: 40px; padding-bottom: 40px; -ms-flex-align: center;}
 .reduce-main {display: -ms-flexbox; display: flex;}
 
 /* Seleção com mouse */
@@ -18,7 +18,7 @@ h1, h2, .text-muted { color: #fff !important;}
 .btn-lg {padding: 1.5rem 1rem;}
 .panel {background-color: #fff; padding: 20px; border-radius: 4px;}
 th,td {color:#888;}
-.panel-title {color:#005490;}
+.panel-title {color:#06253b;}
 
 
 @media (max-width: 768px) {
