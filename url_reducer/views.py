@@ -1,10 +1,36 @@
+from django.db.models.fields import SlugField
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.db.models.functions import TruncDate
 from django.db.models import Count
+import string
+import random
 
 # Create your views here.
 from url_reducer.models import UrlRedirect, Urllog
+
+def home(requisicao):
+    return render(requisicao, 'url_reducer/index.html')
+
+
+def criar_slug(N:int) -> str:
+
+    return ''.join(random.SystemRandom().choice(
+        string.ascii_letters + \
+        string.digits) for _ in range(N)
+    )
+
+def processar(requisicao):
+    url = requisicao.POST.get('url')
+    url_redirect = UrlRedirect.objects.filter(destino=url)
+    if not url_redirect:
+        url_redirect = UrlRedirect.objects.create(
+            destino = url,
+            slug = criar_slug(6)
+        )
+    else:
+        url_redirect = url_redirect[0]
+    return redirect('/relatorios/{slug}'.format(slug=url_redirect.slug))
 
 def relatorios(requisicao, slug):
     url_redirect = UrlRedirect.objects.get(slug=slug)

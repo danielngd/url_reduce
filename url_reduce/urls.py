@@ -20,6 +20,8 @@ from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home),
+    path('processar', views.processar),
     path('<slug:slug>', views.redirecionar),
     path('relatorios/<slug:slug>', views.relatorios),
 ]
