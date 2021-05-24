@@ -24,6 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY')
+
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'secure-sea-21927.herokuapp.com']
 
 
