@@ -27,7 +27,7 @@ DEBUG = False
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'secure-sea-21927.herokuapp.com', 'dnl.fit', 'www.dnl.fit']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'secure-sea-21927.herokuapp.com', 'dnl.fit']
 
 
 # Application definition
